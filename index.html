@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+    </main>
+</body>
+</html>
+<script>
+// let fruits = ["Mango", "Cashew", "Apples"]
+
+// function printFruits(){
+//     fruits.map((el) => {
+//         document.body.innerHTML +=el + "<br/>"
+//     })
+// }
+
+// addFruits(printFruits)
+
+// function addFruits(dan){
+//     setTimeout(() => {
+//         fruits.push("Watermelon")
+//         dan()
+//     }, 3000)
+// }
+
+
+fetch("https://dummyjson.com/products")
+    .then(result => result.json())
+    .then(data => {
+    let products = data.products
+    let productHTML = ''
+
+    products.forEach(prod =>{
+        productHTML += `<div class = "prod">
+            <h3>${prod.description}</h3>
+            <h3>${prod.discountPercentage}%</h3>
+            <h3>${prod.title}</h3>
+            <p>Price: $${prod.price}</p>
+            <p>Brand: ${prod.brand}</p>
+            <img src = "${prod.thumbnail}" alt = "${prod.title}">
+            </div>`
+    })
+    document.body.innerHTML += productHTML
+
+
+})
+
+
+
+
+
+// fetch() = Used to fetch data from a database
+// API = Application Programming Interface
+
+// fetch("application programming Interface")
+// Soap and Rest
+</script>
